@@ -40,7 +40,7 @@ communicate with it. Task system is very important, which will let you get more 
 
 ## Requirements
 
-* [nodejs](http://nodejs.org/)
+* [nodejs](http://nodejs.org/)(version <= 6.11)
 * Linux or Mac os
 * MySQL
 
@@ -90,9 +90,14 @@ log4js.json配置
 ```
 
 
+
+
 ## 说明
 为了方便大家学习pomelo，我把几个常用的工具转移到了这个仓库，pomelo版本，都已经更新到2.2.5版本
 
+## 官方Issue
+- [mimi.lookup is not a function] (https://github.com/broofa/node-mime/blob/1f0af634b97fa47e6e3f603a303e49b40b4c511c/mime.js) (版本更新造成api方法变动)
+- [callback is not a function ]() (genertic-pool版本更新造成api 变动，修改详见dao-pool.js, mysql.js)
 
 ## License
 
