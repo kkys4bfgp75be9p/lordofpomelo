@@ -67,7 +67,8 @@ Colorbox is our team's another open source project. It is a client side game eng
  * or you can visit [github:lordofpomelo](http://github.com/NetEase/lordofpomelo)to download the source and install it on your local machine.
 
 ## 注意事项
-在log4js.json中，将所有log都关掉 否则connector-server 内存会一直飙升
+
+在log4js.json中，将所有log都关掉或者级别设置为ERROR 否则内存会因为日志大量I/O写入一直飙升
 
 ```
 log4js.json配置

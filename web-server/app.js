@@ -1,10 +1,10 @@
 var express = require('express');
 var Token = require('../shared/token');
 var secret = require('../shared/config/session').secret;
-var userDao = require('./lib/dao/userDao');
 var app = express.createServer();
 var mysql = require('./lib/dao/mysql/mysql');
 var everyauth = require('./lib/oauth');
+let userC = require('./controller/user');
 
 var publicPath = __dirname +  '/public';
 
@@ -41,61 +41,12 @@ app.get('/auth_success', function(req, res) {
   }
 });
 
-app.post('/login', function(req, res) {
-  var msg = req.body;
+app.post('/login', userC.login);
 
-  console.log('msg: ',msg);
-  var username = msg.username;
-  var pwd = msg.password;
-  if (!username || !pwd) {
-    res.send({code: 500});
-    return;
-  }
-
-  userDao.getUserByName(username, function(err, user) {
-    if (err || !user) {
-      console.log('username not exist!');
-      res.send({code: 500});
-      return;
-    }
-    if (pwd !== user.password) {
-      // TODO code
-      // password is wrong
-      console.log('password incorrect!');
-      res.send({code: 501});
-      return;
-    }
-
-    console.log(username + ' login!');
-    res.send({code: 200, token: Token.create(user.id, Date.now(), secret), uid: user.id});
-  });
-});
-
-app.post('/register', function(req, res) {
-  //console.log('req.params');
-  var msg = req.body;
-  if (!msg.name || !msg.password) {
-    res.send({code: 500});
-    return;
-  }
-
-  userDao.createUser(msg.name, msg.password, '', function(err, user) {
-    if (err || !user) {
-      console.error(err);
-      if (err && err.code === 1062) {
-        res.send({code: 501});
-      } else {
-        res.send({code: 500});
-      }
-    } else {
-      console.log('A new user was created! --' + msg.name);
-      res.send({code: 200, token: Token.create(user.id, Date.now(), secret), uid: user.id});
-    }
-  });
-});
+app.post('/register', userC.register);
 
 //Init mysql
-mysql.init();
+mysql.init(app);
 
 app.listen(3001);
 
