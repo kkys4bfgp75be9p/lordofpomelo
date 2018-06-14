@@ -40,7 +40,7 @@ communicate with it. Task system is very important, which will let you get more 
 
 ## Requirements
 
-* [nodejs](http://nodejs.org/)(version <= 6.11)
+* [nodejs](http://nodejs.org/) 亲测9.x可使用 所以没什么pomelo@2.2.x 针对node版本的兼容问题
 * Linux or Mac os
 * MySQL
 
