@@ -52,10 +52,10 @@ var TALK_RANGE = 100;
  */
 Npc.prototype.talk = function(player) {
   if(!formula.inRange(player, this, TALK_RANGE)) {
-    return {result: consts.NPC.NOT_IN_RANGE, distance: TALK_RANGE};
+    return {result: consts.NPC.NOT_IN_RANGE, distance: TALK_RANGE};			//距离超过100则因距离太远而失败
   }
 
-  this.emit('onNPCTalk', {npc: this, player : player});
+  this.emit('onNPCTalk', {npc: this, player : player});						//发出onNPCTalk事件
 
   return {result: consts.NPC.SUCCESS};
 };
