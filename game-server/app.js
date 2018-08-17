@@ -8,7 +8,15 @@ var routeUtil = require('./app/util/routeUtil');
 var playerFilter = require('./app/servers/area/filter/playerFilter');
 var ChatService = require('./app/services/chatService');
 var sync = require('pomelo-sync-plugin');
+var mongoose = require('mongoose');
 // var masterhaPlugin = require('pomelo-masterha-plugin');
+
+mongoose.connect('mongodb://localhost:27017/local');
+var db=mongoose.connection;
+db.on('error',console.error.bind(console,'connection error'));
+db.once('open',function(){
+  console.log('连接成功了');
+})
 
 /**
  * Init app for client

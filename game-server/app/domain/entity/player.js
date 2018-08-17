@@ -80,7 +80,7 @@ Player.prototype.afterKill = function(target) {
 Player.prototype.addExperience = function(exp) {
   this.experience += exp;
   if (this.experience >= this.nextLevelExp) {
-    this.upgrade();
+      this.upgrade();
   }
   this.save();
 };

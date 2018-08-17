@@ -3,6 +3,7 @@ var Entity = require('./entity/entity');
 var EntityType = require('../consts/consts').EntityType;
 var Persistent = require('./persistent');
 var logger = require('pomelo-logger').getLogger(__filename);
+var mongoose=require('mongoose');
 
 /**
  * Initialize a new 'Bag' with the given 'opts'

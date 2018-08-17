@@ -22,7 +22,8 @@
     "socket.io": ">=0.9.6",
     "socket.io-client": ">=0.9.6",
     "underscore": "1.5.2",
-    "webkit-devtools-agent": "0.1.2"
+    "webkit-devtools-agent": "0.1.2",
+    "mongoose": "^5.0.17"
   },
   "devDependencies": {
     "should": ">=0.0.1",
