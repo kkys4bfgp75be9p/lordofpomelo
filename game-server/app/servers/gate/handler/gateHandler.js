@@ -4,16 +4,15 @@ var dispatcher = require('../../../util/dispatcher');
 /**
  * Gate handler that dispatch user to connectors.
  */
-module.exports = function(app) {
-	return new Handler(app);
-};
+module.exports = Handler;
 
-var Handler = function(app) {
-	this.app = app;
-};
+class Handler{
+	constructor(app){
+		this.app=app;
+	}
 
-Handler.prototype.queryEntry = function(msg, session, next) {
-	var uid = msg.uid;
+	queryEntry(msg,session,next){
+		var uid = msg.uid;
 	if(!uid) {
 		next(null, {code: Code.FAIL});
 		return;
@@ -28,4 +27,5 @@ Handler.prototype.queryEntry = function(msg, session, next) {
 	var res = dispatcher.dispatch(uid, connectors);
 	next(null, {code: Code.OK, host: res.host, port: res.clientPort});
   // next(null, {code: Code.OK, host: res.pubHost, port: res.clientPort});
-};
+	}
+}

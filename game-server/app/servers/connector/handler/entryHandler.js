@@ -99,3 +99,37 @@ var onUserLeave = function (app, session, reason) {
 	});
 	app.rpc.chat.chatRemote.kick(session, session.uid, null);
 };
+
+// class entryHandler{
+// 	constructor(app){
+// 		this.app = app;
+
+// 		if(!this.app)
+// 			logger.error(app);
+// 	}
+
+// 	async entry(msg,session,next){
+// 		var token=msg.token;
+// 		self=this;
+
+// 		if(!token){
+// 			next(new error('invalid entry request: empty token'),{code:CODE.FAIL});
+// 			return ;
+// 		}
+// 		var uid,player,players;
+// 	}
+
+// 	onUserLeave(app,session,reason){
+// 		if(!session || !session.id){
+// 			return;
+// 		}
+
+// 		utils.myPrint('1 ~ OnUserLeave is running ...');
+// 		app.rpc.area.playerRemote.playerLeave(session, {playerId: session.get('playerId'), instanceId: session.get('instanceId')}, function(err){
+// 			if(!!err){
+// 				logger.error('user leave error! %j', err);
+// 			}
+// 		});
+// 		app.rpc.chat.chatRemote.kick(session,session.uid,null);
+// 	}
+// }
