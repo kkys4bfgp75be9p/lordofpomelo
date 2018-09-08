@@ -3,7 +3,7 @@
         {
          "data":[1],
          "height":1,
-         "name":"desert",
+         "name":"map25",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -4002,7 +4002,7 @@
          "imageheight":2800,
          "imagewidth":4200,
          "margin":0,
-         "name":"desert",
+         "name":"map25",
          "properties":
             {
 
